@@ -1,0 +1,44 @@
+body {
+    background-color: #9292A6;
+    padding: 0px;
+    margin: 0px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    height: 20rem;
+    background-color: #F0E7E2;
+}
+
+input {
+    width: 15rem;
+    height: 1.7rem;
+    border-radius: 8px;
+    border: 0.5px solid #c1c1c1;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    width: 8rem;
+    background-color: #D0D0F7;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+}
+
