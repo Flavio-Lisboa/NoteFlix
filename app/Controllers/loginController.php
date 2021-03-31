@@ -10,4 +10,8 @@ class LoginController extends Controller {
         $this->view('login');
     }
 
+    public function home() {
+        $this->view('home');
+    }
+
 }
