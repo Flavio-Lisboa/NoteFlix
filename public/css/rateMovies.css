@@ -1,0 +1,86 @@
+body {
+    padding: 0;
+    margin:  0;
+    background-color: #c2c2c2;
+}
+
+.navbar {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    background-color: #000;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@font-face {
+	font-family: bebas-neue-bold;
+	src: url(../fonts/bebas-neue-bold.otf);
+}
+
+.navbar p{
+    color: #ff0000;
+    font-family: bebas-neue-bold;
+}
+
+.logo{
+    margin-left: 2rem;
+    width: 2.5rem;
+    height: 2.3rem;
+    cursor: pointer;
+}
+
+.exit{
+    margin-right: 2rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+form {
+    display: grid;
+    width: 25rem;
+    height: auto;
+    min-height: 25rem;
+    border: 1px solid #c1c1c1;
+    justify-content: center;
+    background-color: #000;
+}
+
+form input{
+    width: 20rem;
+    height: 2rem;
+    border: 0.5px solid #c1c1c1;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+form textarea{
+    width: 20rem;
+    height: 2rem;
+    border: 0.5px solid #c1c1c1;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    min-height: 2rem;
+    max-height: 8rem;
+    min-width: 20rem;
+    max-width: 20rem;
+
+}
+
+
+form p{
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    margin-top: 2rem;
+}
+
+.btn {
+    background-color: #ff0000;
+    border: none;
+}

@@ -4,9 +4,9 @@ namespace App\Controllers;
 
 use Core\Controller;
 
-class LoginController extends Controller {
+class RateMoviesController extends Controller {
 
     public function index() {
-        $this->view('login');
+        $this->view('rateMovies');
     }
 }
