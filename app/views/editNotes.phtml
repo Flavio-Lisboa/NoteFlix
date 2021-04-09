@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="public/css/rateMovies.css">
+    <link rel="stylesheet" href="public/css/editNotes.css">
     <link rel="stylesheet" href="public/css/navbar.css">
 
-    <title>Rate movies</title>
+    <title>Edit Notes</title>
 </head>
 <body>
     <div class="allPage">
         <div class="navbar">
-            <img class="logo" src="public/img/starLogo.png">
+            <a href="/rateMovies"><img class="logo" src="public/img/starLogo.png"></a>
             <a href="/myRatings"><p class="userRates">Minhas Avaliações</p></a>
             <a href="/login"><p class="exit">Sair</p></a>
         </div>
         <div class="container">
-            <form>
-                <p>Escolha um filme e dê uma nota!</p>
+            <div class="edit">
+                <p>Edite sua avaliação!</p>
                 <input type="text" placeholder="Nome do filme">
                 <input type="number" placeholder="Nota">
                 <textarea type="text" placeholder="Descrição"></textarea>
                 <input class="btn" type="submit" value="Enviar">
-            </form>
+            </div>
         </div>
     </div>
 </body>

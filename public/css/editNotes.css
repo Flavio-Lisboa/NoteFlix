@@ -1,3 +1,7 @@
+a {
+    text-decoration: none;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -5,7 +9,7 @@
     height: 90vh;
 }
 
-form {
+.edit {
     display: grid;
     width: 25rem;
     height: auto;
@@ -15,7 +19,7 @@ form {
     background-color: #000;
 }
 
-form input{
+.edit input{
     width: 20rem;
     height: 2rem;
     border: 0.5px solid #c1c1c1;
@@ -23,7 +27,7 @@ form input{
     margin-bottom: 1rem;
 }
 
-form textarea{
+.edit textarea{
     width: 20rem;
     height: 2rem;
     border: 0.5px solid #c1c1c1;
@@ -37,18 +41,14 @@ form textarea{
 }
 
 
-form p{
+.edit p{
     display: flex;
     justify-content: center;
     color: #fff;
     margin-top: 2rem;
 }
 
-.btn {
+.edit .btn {
     background-color: #ff0000;
     border: none;
-}
-
-a {
-    text-decoration: none;
 }

@@ -1,0 +1,55 @@
+.container {
+    display: grid;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+}
+
+.ratings {
+    margin-top: 1rem;
+    width: 30rem;
+    height: auto;
+    background-color: #000;
+}
+
+p {
+    color: #fff;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: justify;
+}
+
+.name {
+    color: #ff0000;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.btn1 {
+    width: 10rem;
+    height: 1.7rem;
+    margin-right: 1rem;
+    background-color: #4682B4;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn2 {
+    width: 10rem;
+    height: 1.7rem;
+    background-color: #ff0000;
+    border: none;
+    border-radius: 5px;
+}
+
+a{
+    text-decoration: none;
+}
