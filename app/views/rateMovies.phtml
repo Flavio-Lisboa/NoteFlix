@@ -17,11 +17,11 @@
             <a href="/login"><p class="exit">Sair</p></a>
         </div>
         <div class="container">
-            <form>
+            <form method="POST" action="rateMovies/insertNote">
                 <p>Escolha um filme e dê uma nota!</p>
-                <input type="text" placeholder="Nome do filme">
-                <input type="number" placeholder="Nota">
-                <textarea type="text" placeholder="Descrição"></textarea>
+                <input type="text" name="movieName" placeholder="Nome do filme">
+                <input type="number" name="note" placeholder="Nota">
+                <textarea type="text" name="description" placeholder="Descrição"></textarea>
                 <input class="btn" type="submit" value="Enviar">
             </form>
         </div>
