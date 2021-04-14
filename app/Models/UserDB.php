@@ -92,7 +92,7 @@ class UserDB {
 }
 
 
-
+// password_hash($dataLogin['password_user'], PASSWORD_BCRYPT, ["cost" => 10])
 
 
 
