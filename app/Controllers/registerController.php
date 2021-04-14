@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use Core\Controller;
 use App\Models\UserDB;
+use Core\Request;
 
 class RegisterController extends Controller {
 
@@ -11,27 +12,23 @@ class RegisterController extends Controller {
         $this->view('register');
     }
 
-    public function insert() {
-        $email = preg_replace("/\s+/", "", $_POST["email"]);
-        $name = preg_replace("/\s+/", "", $_POST["username"]);
-        $password = preg_replace("/\s+/", "", $_POST["password"]);
-       
-        $data = [
-            'email_user' => $email,
-            'name_user' => $name,
-            'password_user' => $password,
-        ];
+    public function insert(Request $request) {
+        if ($request->isMethod('get')) {
+            $this->view('register');
+        } else {
+            $email = preg_replace("/\s+/", "", $request->post('email'));
+            $name = preg_replace("/\s+/", "", $request->post('username'));
+            $password = preg_replace("/\s+/", "", $request->post('password'));
 
-        $error = [
-            'emailError' => '',
-            'nameError' => '',
-            'passwordError' => '',
-        ];
-    
-        $record = new UserDB();
-        $record->record($data, $error);
+            $data = [
+                'email_user' => $email,
+                'name_user' => $name,
+                'password_user' => $password,
+            ];
 
-        $this->view('register', $error);
+            $record = new UserDB();
+            $record->record($data);
+        }
     }
 }
 
