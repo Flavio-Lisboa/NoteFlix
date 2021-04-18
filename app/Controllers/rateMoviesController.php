@@ -16,10 +16,10 @@ class RateMoviesController extends Controller {
         if ($request->isMethod('get')) {
             $this->view('rateMovies');
         } else {
-            $moviename = preg_replace("/\s+/", "", $request->post('movieName'));
+            $moviename = $request->post('movieName');
             $note = preg_replace("/\s+/", "", $request->post('note'));
-            $description = preg_replace("/\s+/", "", $request->post('description'));
-            $idUser = 4;
+            $description = $request->post('description');
+            $idUser = 1;
 
             $data = [
                 'movie_name' => $moviename,

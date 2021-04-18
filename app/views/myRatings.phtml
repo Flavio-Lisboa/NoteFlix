@@ -1,3 +1,18 @@
+<?php
+
+function showNotes($movieName, $movieNote, $movieDescription) {
+    echo "<div class='ratings'>";
+    echo "    <p class='name'>Nome: $movieName</p>";
+    echo "    <p>Nota: $movieNote</p>";
+    echo "    <p>Descrição: $movieDescription</p>";
+    echo "    <div class='buttons'>";
+    echo "        <button class='btn1'>Editar</button>";
+    echo "        <button class='btn2'>Excluir</button>";
+    echo "    </div>";
+    echo "</div>";
+} 
+?>
+
 <!DOCTYPE html>
 <html lang="pt_br">
 <head>
@@ -18,16 +33,20 @@
         </div>
         <div class="container">
             <span>Olá, ...</span>
-            <div class="ratings">
-                <p class="name">Nome:</p>
-                <p>Nota:</p>
-                <p>Descrição:  aadsada dasdasd asdada aadsada da  aadsada dasdasd asdada aadsada da aadsada dasdasd asdada aadsada da aadsada dasdasd asdada aadsada da aadsada dasdasd asdada aadsada da aadsada dasdasd asdada aadsada dasdasd asdada aadsada dasdasd asdada aadsada dasdasd asdada aadsada dasdasd asdada aadsada dasdasd asdadas</p>
-                <div class="buttons">
-                    <button class="btn1">Editar</button>
-                    <button class="btn2">Excluir</button>
-                </div>
-            </div>
+
+            <?php 
+                foreach($allNotes as $notes) {
+                    $movieName = $notes['movie_name'];
+                    $movieNote = $notes['movie_note'];
+                    $movieDescription = $notes['movie_description'];
+
+                    echo showNotes($movieName, $movieNote, $movieDescription);
+                }
+            ?>
+            
         </div>
     </div>
 </body>
 </html>
+
+

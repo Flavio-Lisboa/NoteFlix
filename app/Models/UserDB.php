@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Core\Database;
 
-include 'User.php';
-
 class UserDB {
     private $table = "users";
 
@@ -19,19 +17,21 @@ class UserDB {
         
         if (!empty($dataLogin['email_user']) and !empty($dataLogin['password_user'])) {
             if (filter_var($dataLogin['email_user'], FILTER_VALIDATE_EMAIL)) {
-                $loginList = $db->getList($this->table, '*', ['email_user' => $dataLogin['email_user']]);
+                $userDataLogin = $db->getList($this->table, '*', ['email_user' => $dataLogin['email_user']]);
 
-                foreach($loginList as $db) {
+                foreach($userDataLogin as $db) {
                     $id = $db['id_user'];
                     $email = $db['email_user'];
+                    $name = $db['name_user'];
                     $password = $db['password_user'];
                 }
                 if ($dataLogin['email_user'] == $email) {
                     $dataLogin['password_user'] = md5($dataLogin['password_user']);
                     if ($dataLogin['password_user'] == $password) {
-                        $getData = [
+                        $getDataUser = [
                             'id_user' => $id,
                             'email_user' => $email,
+                            'name_user' => $name,
                             'password_user' => $password,
                         ];
                         header('location: \rateMovies');
@@ -64,7 +64,7 @@ class UserDB {
                         if (strlen($data['name_user']) > 3) {
                             if (strlen($data['password_user']) > 7) {
                                 if (strlen($data['password_user']) < 16) {
-                                    $data['password_user'] = md5($data['password_user']);
+                                    $data['password_user'] = md5($dataLogin['password_user']);
                                     $db->insert($this->table, $data);
                                     header('location: \login');
                                 } else {
@@ -92,9 +92,9 @@ class UserDB {
 }
 
 
-// password_hash($dataLogin['password_user'], PASSWORD_BCRYPT, ["cost" => 10])
 
 
 
 
 
+                       

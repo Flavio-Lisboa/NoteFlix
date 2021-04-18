@@ -3,14 +3,12 @@
 namespace App\Models;
 
 use Core\Database;
+use App\Models\UserDB;
+
+session_start();
 
 class NoteDB {
     private $table = "notes";
-
-    public function getAll() {
-        $db = Database::getInstance();
-        return $db->getList($this->table, '*');
-    }
 
     public function record($data) {
         $db = Database::getInstance();
@@ -21,11 +19,11 @@ class NoteDB {
                     if ($data['movie_note'] < 11) {
                         if ($data['movie_note'] > 0) {
                             if (strlen($data['movie_description']) > 4) {
-                                if (strlen($data['movie_description']) < 101) {
+                                if (strlen($data['movie_description']) < 501) {
                                     $db->insert($this->table, $data);
                                     header('location: \myRatings');
                                 } else {
-                                    header('location: \rateMovies');
+                                    header('location: \login');
                                 }               
                             } else {
                                 header('location: \rateMovies');
@@ -45,6 +43,11 @@ class NoteDB {
         } else {
             header('location: \rateMovies');
         }
+    }
+
+    public function getAll() {
+        $db = Database::getInstance();
+        return $db->getList($this->table, '*', ['id_user' => 1]);
     }
 }
 
