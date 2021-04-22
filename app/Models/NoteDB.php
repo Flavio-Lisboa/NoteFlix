@@ -23,25 +23,25 @@ class NoteDB {
                                     $db->insert($this->table, $data);
                                     header('location: \myRatings');
                                 } else {
-                                    header('location: \login');
+                                    return false;
                                 }               
                             } else {
-                                header('location: \rateMovies');
+                                return false;
                             }
                         } else {
-                            header('location: \rateMovies');
+                            return false;
                         }
                     } else {
-                        header('location: \rateMovies');
+                        return false;
                     }
                 } else {
-                    header('location: \rateMovies');
+                    return false;
                 }
             } else {
-                header('location: \rateMovies');
+                return false;
             }
         } else {
-            header('location: \rateMovies');
+            return false;
         }
     }
 

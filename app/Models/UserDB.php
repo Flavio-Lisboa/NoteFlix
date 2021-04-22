@@ -17,35 +17,21 @@ class UserDB {
         
         if (!empty($dataLogin['email_user']) and !empty($dataLogin['password_user'])) {
             if (filter_var($dataLogin['email_user'], FILTER_VALIDATE_EMAIL)) {
+                $dataLogin['password_user'] = md5($dataLogin['password_user']);
                 $userDataLogin = $db->getList($this->table, '*', ['email_user' => $dataLogin['email_user']]);
-
                 foreach($userDataLogin as $db) {
-                    $id = $db['id_user'];
-                    $email = $db['email_user'];
-                    $name = $db['name_user'];
                     $password = $db['password_user'];
                 }
-                if ($dataLogin['email_user'] == $email) {
-                    $dataLogin['password_user'] = md5($dataLogin['password_user']);
-                    if ($dataLogin['password_user'] == $password) {
-                        $getDataUser = [
-                            'id_user' => $id,
-                            'email_user' => $email,
-                            'name_user' => $name,
-                            'password_user' => $password,
-                        ];
-                        header('location: \rateMovies');
-                    } else {
-                        header('location: \login');
-                    }
+                if ($dataLogin['password_user'] == $password) {
+                    return true;
                 } else {
-                    header('location: \login');
+                    return false;
                 }
             } else {
-                header('location: \login');
+                return false;
             }
         } else {
-            header('location: \login');
+            return false;
         }
     }
 
@@ -68,25 +54,25 @@ class UserDB {
                                     $db->insert($this->table, $data);
                                     header('location: \login');
                                 } else {
-                                    header('location: \register');
+                                    return false;
                                 }
                             } else {
-                                header('location: \register');
+                                return false;
                             }
                         } else {
-                            header('location: \register');
+                            return false;
                         }
                     } else {
-                        header('location: \register');
+                        return false;
                     }
                 } else {
-                    header('location: \register');
+                    return false;
                 }
             } else {
-                header('location: \register');
+                return false;
             }
         } else {
-            header('location: \register');
+            return false;
         }
     }
 }

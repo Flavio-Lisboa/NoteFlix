@@ -8,11 +8,8 @@ use Core\Request;
 
 class LoginController extends Controller {
 
-    public function index() {
-        $this->view('login');
-    }
+    public function index(Request $request) {
 
-    public function login(Request $request) {
         if ($request->isMethod('get')) {
             $this->view('login');
         } else {
@@ -24,9 +21,10 @@ class LoginController extends Controller {
                 'password_user' => $password,
             ];
 
-            $get = new UserDB();
-            $get->login($dataLogin);
-        }
+            $userLogin = new UserDB();
+            $releaseAccess = $userLogin->login($dataLogin);
+
+            $releaseAccess ? $this->redirect('rateMovies') : $this->view('login');
+        }     
     }
-        
 }
