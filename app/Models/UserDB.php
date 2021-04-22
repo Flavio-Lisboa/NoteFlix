@@ -37,7 +37,7 @@ class UserDB {
 
     public function record($data) {
         $db = Database::getInstance();
-
+        
         if (!empty($data['email_user']) and !empty($data['name_user']) and !empty($data['password_user'])) {
             if (filter_var($data['email_user'], FILTER_VALIDATE_EMAIL)) {
                 $emailList = $db->getList($this->table, '*', ['email_user' => $data['email_user']]);
@@ -50,9 +50,9 @@ class UserDB {
                         if (strlen($data['name_user']) > 3) {
                             if (strlen($data['password_user']) > 7) {
                                 if (strlen($data['password_user']) < 16) {
-                                    $data['password_user'] = md5($dataLogin['password_user']);
+                                    $data['password_user'] = md5($data['password_user']);
                                     $db->insert($this->table, $data);
-                                    header('location: \login');
+                                    return true;
                                 } else {
                                     return false;
                                 }

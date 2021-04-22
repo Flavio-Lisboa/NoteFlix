@@ -9,7 +9,6 @@ use Core\Request;
 class LoginController extends Controller {
 
     public function index(Request $request) {
-
         if ($request->isMethod('get')) {
             $this->view('login');
         } else {

@@ -8,11 +8,7 @@ use Core\Request;
 
 class RegisterController extends Controller {
 
-    public function index() {
-        $this->view('register');
-    }
-
-    public function insert(Request $request) {
+    public function index(Request $request) {
         if ($request->isMethod('get')) {
             $this->view('register');
         } else {
@@ -27,7 +23,9 @@ class RegisterController extends Controller {
             ];
 
             $record = new UserDB();
-            $record->record($data);
+            $newUser = $record->record($data);
+
+            $newUser ? $this->redirect('login') : $this->view('register');
         }
     }
 }
