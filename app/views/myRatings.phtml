@@ -29,10 +29,10 @@ function showNotes($movieName, $movieNote, $movieDescription) {
         <div class="navbar">
         <a href="/rateMovies"><img class="logo" src="public/img/starLogo.png"></img></a>
             <p class="userRates">Minhas Avaliações</p>
-            <a href="/login"><p class="exit">Sair</p></a>
+            <a href="/login/logout"><p class="exit">Sair</p></a>
         </div>
         <div class="container">
-            <span>Olá, ...</span>
+            <span>Olá, <?= $user['name_user']  ?></span>
 
             <?php 
                 foreach($allNotes as $notes) {

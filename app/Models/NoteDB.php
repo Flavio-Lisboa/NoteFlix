@@ -4,8 +4,7 @@ namespace App\Models;
 
 use Core\Database;
 use App\Models\UserDB;
-
-session_start();
+use Core\Session;
 
 class NoteDB {
     private $table = "notes";
@@ -21,7 +20,7 @@ class NoteDB {
                             if (strlen($data['movie_description']) > 4) {
                                 if (strlen($data['movie_description']) < 501) {
                                     $db->insert($this->table, $data);
-                                    header('location: \myRatings');
+                                    return true;
                                 } else {
                                     return false;
                                 }               
@@ -47,7 +46,10 @@ class NoteDB {
 
     public function getAll() {
         $db = Database::getInstance();
-        return $db->getList($this->table, '*', ['id_user' => 1]);
+        $session = Session::getInstance();
+        $user = $session->get('user');
+
+        return $db->getList($this->table, '*', ['id_user' => $user['id_user']]);
     }
 }
 

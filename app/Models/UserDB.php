@@ -12,26 +12,22 @@ class UserDB {
         return $db->getList($this->table, '*');
     }
 
-    public function login($dataLogin) {
+    public function login($email, $password) {
         $db = Database::getInstance();
         
-        if (!empty($dataLogin['email_user']) and !empty($dataLogin['password_user'])) {
-            if (filter_var($dataLogin['email_user'], FILTER_VALIDATE_EMAIL)) {
-                $dataLogin['password_user'] = md5($dataLogin['password_user']);
-                $userDataLogin = $db->getList($this->table, '*', ['email_user' => $dataLogin['email_user']]);
-                foreach($userDataLogin as $db) {
-                    $password = $db['password_user'];
-                }
-                if ($dataLogin['password_user'] == $password) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
+        if (!empty($email) and !empty($password)) {
+            $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+            $data = $db->getList($this->table, '*', ['email_user' => $email]);
+            
+            $user = $data[0];
+            if (isset($user['id_user'])) {
+                $password = md5($password);
+                if ($password == $user['password_user']) {
+                    unset($user['password_user']);
+                    return $user;
+                }           
             }
-        } else {
-            return false;
+            return false; 
         }
     }
 
