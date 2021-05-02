@@ -13,35 +13,15 @@ class NoteDB {
         $db = Database::getInstance();
 
         if (!empty($data['movie_name']) and !empty($data['movie_note']) and !empty($data['movie_description'])) {
-            if (strlen($data['movie_name']) < 31) {
-                if (strlen($data['movie_note']) < 3) {
-                    if ($data['movie_note'] < 11) {
-                        if ($data['movie_note'] > 0) {
-                            if (strlen($data['movie_description']) > 4) {
-                                if (strlen($data['movie_description']) < 501) {
-                                    $db->insert($this->table, $data);
-                                    return true;
-                                } else {
-                                    return false;
-                                }               
-                            } else {
-                                return false;
-                            }
-                        } else {
-                            return false;
-                        }
-                    } else {
-                        return false;
-                    }
-                } else {
-                    return false;
+            if (strlen($data['movie_name']) < 31 && strlen($data['movie_note']) < 3 && $data['movie_note'] < 11) {
+                if ($data['movie_note'] > 0 && strlen($data['movie_description']) > 4 && strlen($data['movie_description']) < 501) {
+                    $db->insert($this->table, $data);
+                    return true;       
                 }
-            } else {
-                return false;
             }
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     public function getAll() {
