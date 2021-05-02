@@ -1,14 +1,14 @@
 <?php
 
-function showNotes($movieName, $movieNote, $movieDescription) {
+function showNotes($movieId, $movieName, $movieNote, $movieDescription) {
     echo "<div class='ratings'>";
     echo "    <p class='name'>Nome: $movieName</p>";
     echo "    <p>Nota: $movieNote</p>";
     echo "    <p>Descrição: $movieDescription</p>";
-    echo "    <div class='buttons'>";
-    echo "        <button class='btn1'>Editar</button>";
-    echo "        <button class='btn2'>Excluir</button>";
-    echo "    </div>";
+    echo "    <form class='buttons' action='myRatings/delete' method='POST'>";
+    echo "        <button type='submit' class='btn1' name='btn1'>Editar</button>";
+    echo "        <button type='submit' class='btn2' name='btn2' value='$movieId'>Excluir</button>";
+    echo "    </form>";
     echo "</div>";
 } 
 ?>
@@ -36,11 +36,12 @@ function showNotes($movieName, $movieNote, $movieDescription) {
 
             <?php 
                 foreach($allNotes as $notes) {
+                    $movieId = $notes['id_note'];
                     $movieName = $notes['movie_name'];
                     $movieNote = $notes['movie_note'];
                     $movieDescription = $notes['movie_description'];
 
-                    echo showNotes($movieName, $movieNote, $movieDescription);
+                    echo showNotes($movieId, $movieName, $movieNote, $movieDescription);
                 }
             ?>
             

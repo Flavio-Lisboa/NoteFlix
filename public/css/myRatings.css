@@ -43,6 +43,9 @@ p {
 }
 
 .btn2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 10rem;
     height: 1.7rem;
     background-color: #ff0000;

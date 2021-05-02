@@ -5,6 +5,7 @@ namespace App\Controllers;
 use Core\Controller;
 use App\Models\NoteDB;
 use Core\Session;
+use Core\Request;
 
 class MyRatingsController extends Controller {
 
@@ -26,5 +27,14 @@ class MyRatingsController extends Controller {
         ];
         
         $this->view('myRatings', $content);
+    }
+
+    public function delete(Request $request) {
+        $value = $request->post('btn2');
+
+        $delete = new NoteDB;
+        $delete->deleteNotes($value);
+
+        $this->redirect('\myRatings');
     }
 }

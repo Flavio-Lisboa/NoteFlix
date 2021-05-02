@@ -51,6 +51,12 @@ class NoteDB {
 
         return $db->getList($this->table, '*', ['id_user' => $user['id_user']]);
     }
+
+    public function deleteNotes($value) {
+        $db = Database::getInstance();
+
+        return $db->delete($this->table, ['id_note' => $value]);
+    }
 }
 
 
