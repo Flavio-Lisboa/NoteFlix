@@ -13,35 +13,35 @@ class RateMoviesController extends Controller {
         $this->session = Session::getInstance();
     }
 
-    public function index() {
-        $this->view('rateMovies');
-    }
-
-    public function insertNote(Request $request) {
-        if ($request->isMethod('get')) {
-            $this->view('rateMovies');
-        } else {
-            $moviename = $request->post('movieName');
-            $note = preg_replace("/\s+/", "", $request->post('note'));
-            $description = $request->post('description');
-
-            $user = $this->session->get('user');
-
-            $data = [
-                'movie_name' => $moviename,
-                'movie_note' => $note,
-                'movie_description' => $description,
-                'id_user' =>  $user['id_user'],
-            ];
-
-            $record = new NoteDB();
-            $error = $record->record($data);
-
-            if($error == true) {
-                $this->redirect('\myRatings');
+    public function index(Request $request) {
+        if($this->session->get('user')) {
+            if ($request->isMethod('get')) {
+                $this->view('rateMovies');
             } else {
-                $this->redirect('\rateMovies');
+                $moviename = $request->post('movieName');
+                $note = preg_replace("/\s+/", "", $request->post('note'));
+                $description = $request->post('description');
+
+                $user = $this->session->get('user');
+
+                $data = [
+                    'movie_name' => $moviename,
+                    'movie_note' => $note,
+                    'movie_description' => $description,
+                    'id_user' =>  $user['id_user'],
+                ];
+
+                $record = new NoteDB();
+                $error = $record->record($data);
+
+                if($error == true) {
+                    $this->redirect('\myRatings');
+                } else {
+                    $this->redirect('\rateMovies');
+                }
             }
+        } else {
+            $this->redirect('/login');
         }
-    }
-}
+    }   
+}        

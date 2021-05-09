@@ -40,17 +40,16 @@ p {
     background-color: #4682B4;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .btn2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 10rem;
     height: 1.7rem;
     background-color: #ff0000;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 a{

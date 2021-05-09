@@ -16,17 +16,21 @@ class MyRatingsController extends Controller {
     }
 
     public function index() {
-        $getNotes = new NoteDB;
-        $allNotes = $getNotes->getAll();
+        if($this->session->get('user')) {
+            $getNotes = new NoteDB;
+            $allNotes = $getNotes->getAll();
 
-        $user = $this->session->get('user');
-        
-        $content = [
-            'allNotes' => $allNotes,
-            'user' => $user,
-        ];
-        
-        $this->view('myRatings', $content);
+            $user = $this->session->get('user');
+            
+            $content = [
+                'allNotes' => $allNotes,
+                'user' => $user,
+            ];
+            
+            $this->view('myRatings', $content);
+        } else {
+            $this->redirect('/login');
+        }
     }
 
     public function delete(Request $request) {

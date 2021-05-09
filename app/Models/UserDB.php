@@ -27,8 +27,8 @@ class UserDB {
                     return $user;
                 }           
             }
-            return false; 
         }
+        return false; 
     }
 
     public function record($data) {
