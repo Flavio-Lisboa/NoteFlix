@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Core\Controller;
-use App\Models\UserDB;
+use App\Models\User;
 use Core\Request;
 
 class RegisterController extends Controller {
@@ -22,7 +22,7 @@ class RegisterController extends Controller {
                 'password_user' => $password,
             ];
 
-            $record = new UserDB();
+            $record = new User();
             $newUser = $record->record($data);
 
             $newUser ? $this->redirect('login') : $this->view('register');

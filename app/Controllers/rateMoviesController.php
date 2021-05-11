@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Core\Controller;
-use App\Models\NoteDB;
+use App\Models\Note;
 use Core\Request;
 use Core\Session;
 
@@ -31,7 +31,7 @@ class RateMoviesController extends Controller {
                     'id_user' =>  $user['id_user'],
                 ];
 
-                $record = new NoteDB();
+                $record = new Note();
                 $error = $record->record($data);
 
                 if($error == true) {

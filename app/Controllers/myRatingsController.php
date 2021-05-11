@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Core\Controller;
-use App\Models\NoteDB;
+use App\Models\Note;
 use Core\Session;
 use Core\Request;
 
@@ -17,7 +17,7 @@ class MyRatingsController extends Controller {
 
     public function index() {
         if($this->session->get('user')) {
-            $getNotes = new NoteDB;
+            $getNotes = new Note;
             $allNotes = $getNotes->getAll();
 
             $user = $this->session->get('user');
@@ -36,7 +36,7 @@ class MyRatingsController extends Controller {
     public function delete(Request $request) {
         $value = $request->post('btn2');
 
-        $delete = new NoteDB;
+        $delete = new Note;
         $delete->deleteNotes($value);
 
         $this->redirect('\myRatings');

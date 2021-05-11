@@ -5,10 +5,14 @@ function showNotes($movieId, $movieName, $movieNote, $movieDescription) {
     echo "    <p class='name'>Nome: $movieName</p>";
     echo "    <p>Nota: $movieNote</p>";
     echo "    <p>Descrição: $movieDescription</p>";
+    echo "  <div class='flex'>";
+    echo "    <form class='buttons' action='editNotes' method='POST'>";
+    echo "        <button type='submit' class='btn1' name='btn1' value='$movieId'>Editar</button>";
+    echo "    </form>";
     echo "    <form class='buttons' action='myRatings/delete' method='POST'>";
-    echo "        <button type='submit' class='btn1' name='btn1'>Editar</button>";
     echo "        <button type='submit' class='btn2' name='btn2' value='$movieId'>Excluir</button>";
     echo "    </form>";
+    echo "  </div>";
     echo "</div>";
 } 
 ?>

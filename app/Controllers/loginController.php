@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use Core\Controller;
-use App\Models\UserDB;
+use App\Models\User;
 use Core\Request;
 use Core\Session;
 
@@ -28,7 +28,7 @@ class LoginController extends Controller {
             $email = preg_replace("/\s+/", "", $request->post('email'));
             $password = preg_replace("/\s+/", "", $request->post('password'));
 
-            $userLogin = new UserDB();
+            $userLogin = new User();
             $user = $userLogin->login($email, $password);
 
             if($user) {

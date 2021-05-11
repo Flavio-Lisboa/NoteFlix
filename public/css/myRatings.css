@@ -27,6 +27,11 @@ p {
     color: #ff0000;
 }
 
+.flex {
+    display: flex;
+    justify-content: center;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
