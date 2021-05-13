@@ -49,7 +49,6 @@ class User {
                 }
             }
         }
-
         return false;
     }
 }
