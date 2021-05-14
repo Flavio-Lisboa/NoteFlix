@@ -9,6 +9,8 @@ use Core\Session;
 
 class RateMoviesController extends Controller {
 
+    private $session;
+
     public function __construct() {
         $this->session = Session::getInstance();
     }

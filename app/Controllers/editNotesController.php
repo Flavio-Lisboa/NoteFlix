@@ -9,6 +9,8 @@ use Core\Request;
 
 class EditNotesController extends Controller {
 
+    private $session;
+
     public function __construct() {
         $this->session = Session::getInstance();
     }
@@ -57,8 +59,6 @@ class EditNotesController extends Controller {
             } else {
                 $this->redirect('\myRatings');
             }
-
-            
         }
     }
 }
