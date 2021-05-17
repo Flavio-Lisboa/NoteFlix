@@ -5,12 +5,25 @@ namespace App\Controllers;
 use Core\Controller;
 use App\Models\User;
 use Core\Request;
+use Core\Session;
 
 class RegisterController extends Controller {
 
+    private $session;
+
+    public function __construct() {
+        $this->session = Session::getInstance();
+    }
+
     public function index(Request $request) {
         if ($request->isMethod('get')) {
-            $this->view('register');
+            $user = $this->session->get('user');
+            
+            if($user) {
+                $this->view('rateMovies');
+            } else {
+                $this->redirect('register');
+            }
         } else {
             $email = preg_replace("/\s+/", "", $request->post('email'));
             $name = preg_replace("/\s+/", "", $request->post('username'));

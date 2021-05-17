@@ -35,8 +35,6 @@ class LoginController extends Controller {
                 $this->session->set('user', $user);
                 $this->redirect('rateMovies');
             } 
-
-            $this->view('login');
         }     
     }
 
