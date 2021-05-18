@@ -22,7 +22,7 @@ class RegisterController extends Controller {
             if($user) {
                 $this->view('rateMovies');
             } else {
-                $this->redirect('register');
+                $this->view('register');
             }
         } else {
             $email = preg_replace("/\s+/", "", $request->post('email'));
