@@ -5,7 +5,7 @@ return [
         'driver'	=> 'mysql',
         'host'		=> 'localhost',
         'dbname'	=> 'noteFlix',
-        'user'		=> 'root',
+        'user'		=> '',
         'pass'		=> ''
     ],
 ];
