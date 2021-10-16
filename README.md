@@ -8,6 +8,8 @@ NoteFlix is a full stack web application, developed to learn how to use a framew
 
 The application is made for users to rate and add comments on movies they have watched. All notes can be accessed, having the availability to edit and delete them.
 
+![Noteflix](https://github.com/Flavio-Lisboa/NoteFlix-with-Noobframework/blob/main/NoteFlix.gif)
+
 
 # Technologies used
 ## Back end
@@ -58,4 +60,4 @@ php -S localhost:8080 router.php
 
 Flavio Fernandes Lisboa
 
-linkedin.com/in/flavio-lisboa-it 
+https://www.linkedin.com/in/flavio-lisboa-it/
