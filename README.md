@@ -1,4 +1,5 @@
-# NoteFlix
+# NoteFlix 
+
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/Flavio-Lisboa/NoteFlix-with-Noobframework/blob/main/LICENSE) 
 
 # About the project
@@ -10,6 +11,16 @@ The application is made for users to rate and add comments on movies they have w
 
 ![Noteflix](https://github.com/Flavio-Lisboa/NoteFlix-with-Noobframework/blob/main/NoteFlix.gif)
 
+This project was built with the help of Noobframework, which was built by my teacher Edigar. See a little more about it -> https://github.com/edigar/noobframework
+
+# Features
+
+- [x] Login
+- [x] Register
+- [x] Add notes
+- [x] Edit notes
+- [x] Delete notes
+- [x] Log off
 
 # Technologies used
 ## Back end
